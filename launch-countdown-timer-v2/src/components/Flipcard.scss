@@ -108,6 +108,8 @@ h2 {
   position: absolute;
   bottom: 0;
   left: 0;
+
+  box-shadow: 0 8px 0px 0 $dark-gray-blue;
 }
 
 // two-sided card container
@@ -166,6 +168,7 @@ h2 {
   width: var(--card-size);
   height: fit-content;
   text-align: center;
+  margin-top: 8px;
 
   container-type: inline-size;
 }
