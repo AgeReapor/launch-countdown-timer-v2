@@ -1,0 +1,184 @@
+@use "../globals.scss" as *;
+
+.flipcard {
+  --card-size: 120px;
+  position: relative;
+  width: var(--card-size);
+  height: var(--card-size);
+}
+
+@mixin scoopedCorner($border-radius: 10px) {
+  position: absolute;
+  content: "";
+  width: $border-radius;
+  height: $border-radius;
+  border-radius: $border-radius;
+  background-color: $dark-blue;
+}
+
+.card {
+  position: relative;
+  height: calc(var(--card-size) / 2);
+  width: 100%;
+  text-align: center;
+  background-color: $gray-blue;
+
+  $border-radius: 10px;
+  $scooped-corner-radius: 12px;
+  overflow: hidden;
+  z-index: 0;
+
+  &.top {
+    filter: brightness(0.8);
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+  &.top::before {
+    @include scoopedCorner($scooped-corner-radius);
+    bottom: 0;
+    left: 0;
+    transform: translateX(-50%) translateY(50%);
+  }
+
+  &.top::after {
+    @include scoopedCorner($scooped-corner-radius);
+    bottom: 0;
+    right: 0;
+    transform: translateX(50%) translateY(50%);
+  }
+
+  &.bot {
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  &.bot::before {
+    @include scoopedCorner($scooped-corner-radius);
+
+    filter: brightness(0.8);
+    top: 0;
+    left: 0;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &.bot::after {
+    @include scoopedCorner($scooped-corner-radius);
+    filter: brightness(0.8);
+    top: 0;
+    right: 0;
+    transform: translateX(50%) translateY(-50%);
+  }
+}
+
+h2 {
+  margin-top: 0px;
+  color: $light-red;
+  font-size: calc(var(--card-size) / 2);
+  line-height: var(--card-size);
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card-size);
+  height: var(--card-size);
+  text-align: center;
+}
+
+.bot .number {
+  top: calc((var(--card-size) / -2) + 1px);
+
+  h2 {
+    margin-top: -1px;
+  }
+}
+
+// static cards
+
+.card.new.top {
+  //   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card.old.bot {
+  //   display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+// two-sided card container
+.flipper {
+  position: relative;
+  width: var(--card-size);
+  height: var(--card-size);
+  //   border: 1px solid red;
+  z-index: 4;
+
+  transition: transform 0.8s;
+  perspective: 5px;
+  transform-style: preserve-3d;
+
+  .card {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+}
+// flipping cards
+
+.card.new.bot {
+  transform: rotateX(180deg);
+}
+
+@keyframes flip1 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(180deg);
+  }
+}
+@keyframes flip2 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(180deg);
+  }
+}
+
+.flip1 {
+  animation: flip1 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+.flip2 {
+  animation: flip2 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+.titleContainer {
+  position: absolute;
+  width: var(--card-size);
+  height: fit-content;
+  text-align: center;
+
+  container-type: inline-size;
+}
+
+.titleContainer > h4 {
+  color: $light-gray-blue;
+  font-weight: $font-weight-bold;
+  font-size: clamp(0.3rem, 10cqi, 0.7rem);
+  letter-spacing: 5px;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .flipcard {
+    --card-size: clamp(60px, 20vw, 120px);
+  }
+}

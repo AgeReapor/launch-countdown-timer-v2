@@ -1,0 +1,11 @@
+@use "../globals.scss" as *;
+
+main {
+  margin-top: 5vh;
+  margin-bottom: clamp(80px, 10vh, 300px);
+}
+
+.flipcards {
+  display: flex;
+  gap: clamp(8px, 2vw, 32px);
+}
