@@ -1,0 +1,61 @@
+@use "../globals.scss" as *;
+
+$fbIconPath: "../assets/images/icon-facebook.svg";
+$pinterestIconPath: "../assets/images/icon-pinterest.svg";
+$instagramIconPath: "../assets/images/icon-instagram.svg";
+
+$iconSize: 24px;
+
+.socials {
+  width: 100%;
+  margin: 80px;
+  margin-top: auto;
+
+  justify-self: flex-end;
+  display: flex;
+
+  justify-content: center;
+  gap: 32px;
+}
+
+a {
+  width: $iconSize;
+  height: $iconSize;
+}
+
+@mixin icon($url) {
+  width: $iconSize;
+  height: $iconSize;
+  background-color: $light-gray-blue;
+  mask-image: url($url);
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $light-red;
+    animation: flipIcon 0.5s ease-in-out;
+  }
+}
+
+.fbIcon {
+  @include icon($fbIconPath);
+}
+
+.pinterestIcon {
+  @include icon($pinterestIconPath);
+}
+
+.instagramIcon {
+  @include icon($instagramIconPath);
+}
+
+@keyframes flipIcon {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}

@@ -1,0 +1,13 @@
+@use "../globals.scss" as *;
+
+$letter-spacing: 8px;
+
+header {
+  text-align: center;
+  padding: clamp(8px, 5vh, 5vh);
+  padding-top: clamp(30px, 15vh, 15vh);
+}
+
+h3 {
+  letter-spacing: $letter-spacing;
+}

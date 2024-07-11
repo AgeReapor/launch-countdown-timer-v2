@@ -1,0 +1,36 @@
+@use "./globals.scss" as *;
+
+$starsBgUrl: url("./assets/images/bg-stars.svg");
+$hillsBgUrl: url("./assets/images/pattern-hills.svg");
+
+#root {
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+
+  color: $white;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+
+  background-image: $hillsBgUrl, $starsBgUrl,
+    linear-gradient(
+      0deg,
+      adjust-color($mountain-violet, $lightness: -3%) 20%,
+      $dark-blue 70%,
+      $dark-gray-blue 100%
+    );
+  background-repeat: no-repeat, repeat;
+  background-size: clamp(1200px, 100vw, 100vw), clamp(1200px, 100vw, 100vw);
+  background-position: bottom center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

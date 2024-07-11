@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap");
+
+$light-gray-blue: hsl(237, 18%, 59%); // Text
+$light-red: hsl(345, 95%, 68%); // Clock Text
+
+$white: hsl(0, 0%, 100%); // Message, Stars
+$gray-blue: hsl(236, 21%, 26%); // Flipcard
+$dark-blue: hsl(235, 16%, 14%); // BG
+$dark-gray-blue: hsl(234, 17%, 12%); // BG
+
+$mountain-violet: #2f2439; // BG
+
+$font-size: 14px;
+$font-family: "Red Hat Text", sans-serif;
+
+$font-weight-thin: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$mobile-breakpoint: 768px;
+$short-breakpoint: 480px;
