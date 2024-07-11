@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/AgeReapor/launch-countdown-timer-v2)
-- Live Site URL: [Add live site URL here](https://launch-countdown-timer-v2-kjhk1rgcp-agereapors-projects.vercel.app)
+- Live Site URL: [Vercel](https://launch-countdown-timer-v2-gw6cb1baa-agereapors-projects.vercel.app)
 
 ## My process
 
